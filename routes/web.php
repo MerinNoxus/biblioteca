@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BooksController;
+use App\Http\Controllers\LoadBookController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+
+Route::get('/',[SiteController::class,'index'])->name('site');
+
+Route::resource('books', BooksController::class);
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('load', LoadBookController::class)->middleware('auth');
