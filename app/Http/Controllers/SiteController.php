@@ -13,6 +13,10 @@ class SiteController extends Controller
     {
         return view('index');
     }
+    public function __invoke()
+{
+    return view('layouts.donar');
+}
 
     /**
      * Show the form for creating a new resource.

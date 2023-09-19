@@ -32,8 +32,8 @@ class LoadBookController extends Controller
       $request->validate([
         'titulo' => 'required|string|max:255',
         'descripcion' => 'required|string',
-        'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'pdf' => 'required|mimes:pdf|max:10000',
+        'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|',
+        'pdf' => 'required|mimes:pdf',
         'id_categories' => 'exists:categories,id',
         'id_autors' => 'exists:autors,id|array',
     ]);
@@ -51,8 +51,8 @@ class LoadBookController extends Controller
         'descripcion' => $request->descripcion,
         'imagen' => 'images/' . $imageName,
         'pdf' => 'pdfs/' . $pdfName,
-        'id_categories' => '3',
-        'id_autors' => '6',
+        'id_categories' => '2',
+        'id_autors' => '3',
     ]);
     
     // Asociar autores al libro

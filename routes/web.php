@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',[SiteController::class,'index'])->name('site');
+Route::get('/donar', SiteController::class)->name('donar');
+
 
 Route::resource('books', BooksController::class);
 
